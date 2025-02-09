@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <BitmapImage x:Key="10x10MapImage"  UriSource="pack://application:,,,/View/Resources/Images/10x10.png"/>
+    <BitmapImage x:Key="15x15MapImage"  UriSource="pack://application:,,,/View/Resources/Images/15x15.png"/>
+    <BitmapImage x:Key="20x20MapImage"  UriSource="pack://application:,,,/View/Resources/Images/20x20.png"/>
+    <BitmapImage x:Key="CustomMapImage" UriSource="pack://application:,,,/View/Resources/Images/customMap.jpg"/>
+    <BitmapImage x:Key="skullImage"     UriSource="pack://application:,,,/View/Resources/Images/skull.png"/>
+    <BitmapImage x:Key="bombIcon"       UriSource="pack://application:,,,/View/Resources/Images/bombIco.ico"/>
+    
+    <BitmapImage x:Key="playerImage"    UriSource="pack://application:,,,/View/Resources/Images/player.jpg"/>
+    <BitmapImage x:Key="enemyImage"     UriSource="pack://application:,,,/View/Resources/Images/enemy.jpg"/>
+    <BitmapImage x:Key="emptyImage"     UriSource="pack://application:,,,/View/Resources/Images/empty.jpg"/>
+    <BitmapImage x:Key="wallImage"      UriSource="pack://application:,,,/View/Resources/Images/wall.jpg"/>
+    <BitmapImage x:Key="explosionImage" UriSource="pack://application:,,,/View/Resources/Images/explosion.png"/>
+    <BitmapImage x:Key="bombImage"      UriSource="pack://application:,,,/View/Resources/Images/bomb.jpg"/>
+
+
+</ResourceDictionary>

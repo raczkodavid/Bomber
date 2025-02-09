@@ -1,0 +1,67 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:BomberGame_Avalonia.ViewModels"
+        xmlns:conv="clr-namespace:BomberGame_Avalonia"
+        x:Class="BomberGame_Avalonia.Views.GameWindow"
+        x:DataType="vm:GameViewModel"
+        x:CompileBindings="True"
+        Title="GameWindow"
+        Icon="avares://BomberGame_Avalonia/Assets/Images/bombIco.ico"
+        Width="800" Height="600">
+
+	<Window.Resources>
+		<conv:ImageSourceConverter x:Key="ImageSourceConverter" />
+	</Window.Resources>
+
+	<Window.KeyBindings>
+        <KeyBinding Gesture="W" Command="{Binding MoveUpCommand}"></KeyBinding>
+        <KeyBinding Gesture="A" Command="{Binding MoveLeftCommand}"></KeyBinding>
+		<KeyBinding Gesture="S" Command="{Binding MoveDownCommand}"></KeyBinding>
+        <KeyBinding Gesture="D" Command="{Binding MoveRightCommand}"></KeyBinding>
+        <KeyBinding Gesture="B" Command="{Binding PlaceBombCommand}"></KeyBinding>
+	</Window.KeyBindings>
+
+	<Grid Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="10">
+				<TextBlock Text="Time: " VerticalAlignment="Center"/>
+				<TextBlock Text="{Binding GameTime}" FontWeight="Bold" VerticalAlignment="Center"/>
+				<TextBlock Text="Killed Enemies: " VerticalAlignment="Center"/>
+				<TextBlock Text="{Binding EnemiesKilled}" FontWeight="Bold" VerticalAlignment="Center"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="20">
+				<Button Content="Start Game" Command="{Binding StartGameCommand}" />
+				<Button Content="{Binding PauseResumeText}" Command="{Binding PauseResumeCommand}" />
+                <Button Content="New Game" Command="{Binding NewGameCommand}" />
+			</StackPanel>
+		</StackPanel>
+
+		<Viewbox Grid.Row="3" Stretch="Uniform" Margin="0, 0, 0, 5">
+			<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
+				<ItemsControl ItemsSource="{Binding GameFields}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<UniformGrid Rows="{Binding MapSize}" Columns="{Binding MapSize}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0"/>
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<Image Source="{Binding FieldType, Converter={StaticResource ImageSourceConverter}}"
+                                   Stretch="Fill" Margin="0"/>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</Grid>
+		</Viewbox>
+
+	</Grid>
+</Window>

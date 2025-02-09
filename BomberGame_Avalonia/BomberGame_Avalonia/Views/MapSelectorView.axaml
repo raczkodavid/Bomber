@@ -1,0 +1,91 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="BomberGame_Avalonia.Views.MapSelectorView"
+             Background="MintCream">
+
+	<UserControl.Styles>
+		<Style Selector="Button.MapImageButtonStyle">
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="10"/>
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="Width" Value="160"/>
+			<Setter Property="Height" Value="160"/>
+		</Style>
+
+		<Style Selector="Image.SkullImageStyle">
+			<Setter Property="Width" Value="50"/>
+			<!-- Increased size -->
+			<Setter Property="Height" Value="50"/>
+			<!-- Increased size -->
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+
+		<Style Selector="TextBlock.LabelStyle">
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="FontSize" Value="22"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="FontFamily" Value="Stencil"/>
+			<Setter Property="Margin" Value="0,0,0,10"/>
+		</Style>
+	</UserControl.Styles>
+
+	<Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5, 10, 5, 0">
+		<DockPanel LastChildFill="True">
+			<!-- Title -->
+			<TextBlock DockPanel.Dock="Top"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontFamily="Stencil"
+                       Margin="0,0,0,20"
+                       FontWeight="Bold">
+				Please Select a Map!
+			</TextBlock>
+
+			<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+				<StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Spacing="5">
+
+					<StackPanel HorizontalAlignment="Center">
+						<Button Classes="MapImageButtonStyle" Command="{Binding SelectMapCommand}" CommandParameter="easy">
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/10x10.png" Stretch="Uniform"/>
+						</Button>
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+						<TextBlock Text="10x10" Classes="LabelStyle"/>
+					</StackPanel>
+
+					<StackPanel HorizontalAlignment="Center">
+						<Button Classes="MapImageButtonStyle" Command="{Binding SelectMapCommand}" CommandParameter="medium">
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/15x15.png" Stretch="Uniform"/>
+						</Button>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+						</StackPanel>
+						<TextBlock Text="15x15" Classes="LabelStyle"/>
+					</StackPanel>
+
+					<StackPanel HorizontalAlignment="Center">
+						<Button Classes="MapImageButtonStyle" Command="{Binding SelectMapCommand}" CommandParameter="hard">
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/20x20.png" Stretch="Uniform"/>
+						</Button>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+						</StackPanel>
+						<TextBlock Text="20x20" Classes="LabelStyle"/>
+					</StackPanel>
+
+					<StackPanel HorizontalAlignment="Center">
+						<Button Classes="MapImageButtonStyle" Command="{Binding SelectMapCommand}" CommandParameter="custom">
+							<Image Source="avares://BomberGame_Avalonia/Assets/Images/customMap.jpg" Stretch="Uniform"/>
+						</Button>
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+						<TextBlock Text="CUSTOM" Classes="LabelStyle"/>
+					</StackPanel>
+
+				</StackPanel>
+			</ScrollViewer>
+		</DockPanel>
+	</Grid>
+</UserControl>

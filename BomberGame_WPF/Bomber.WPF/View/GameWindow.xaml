@@ -1,0 +1,71 @@
+﻿<Window x:Class="Bomber.WPF.View.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Bomber Game - YCFCIY"
+        Height="900"
+        Width="870"
+        WindowStartupLocation="CenterScreen"
+        Icon="{StaticResource bombIcon}">
+
+    <Window.InputBindings>
+        <KeyBinding Key="W" Command="{Binding MoveUpCommand}" />
+        <KeyBinding Key="A" Command="{Binding MoveLeftCommand}" />
+        <KeyBinding Key="S" Command="{Binding MoveDownCommand}" />
+        <KeyBinding Key="D" Command="{Binding MoveRightCommand}" />
+        <KeyBinding Key="B" Command="{Binding PlaceBombCommand}" />
+    </Window.InputBindings>
+
+    <DockPanel>
+        <!-- Invisible Spacer Docked to the Bottom -->
+        <Border Background="Transparent" DockPanel.Dock="Bottom" Height="10" />
+
+        <!-- Main Grid -->
+        <Grid DockPanel.Dock="Top">
+            <!-- Grid Layout -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Top panels -->
+                <RowDefinition Height="*" />
+                <!-- Game board -->
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Top Control Panel -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Command="{Binding NewGameCommand}" Content="New Game" Width="100" Height="30" Margin="10" />
+                <Button Command="{Binding StartGameCommand}" IsEnabled="{Binding CanStart}" Content="Start" Width="100" Height="30" Margin="10" />
+                <Button Command="{Binding PauseResumeCommand}" Content="{Binding PauseResumeText}" Width="100" Height="30" Margin="10" />
+            </StackPanel>
+
+            <!-- Info Panel -->
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                <Label Content="Elapsed Time: " VerticalAlignment="Center" />
+                <Label Content="{Binding GameTime}" VerticalAlignment="Center" Margin="5" />
+                <Label Content="Killed Enemies: " VerticalAlignment="Center" />
+                <Label Content="{Binding EnemiesKilled}" VerticalAlignment="Center" Margin="5" />
+            </StackPanel>
+
+            <!-- Game Board -->
+            <ItemsControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" ItemsSource="{Binding GameFields}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="{Binding MapSize}" Columns="{Binding MapSize}" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding FieldType, Converter={StaticResource ImageSourceConverter}}" 
+                               Margin="{Binding DataContext.ImageMargin, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </DockPanel>
+</Window>

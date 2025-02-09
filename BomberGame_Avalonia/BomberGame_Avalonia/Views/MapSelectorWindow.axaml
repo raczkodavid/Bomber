@@ -1,0 +1,91 @@
+<Window xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="BomberGame_Avalonia.Views.MapSelectorWindow"
+             Background="MintCream"
+             Title="Map Selector Window"
+             Icon="avares://BomberGame_Avalonia/Assets/Images/bombIco.ico">
+
+	<Window.Styles>
+		<Style Selector="Button.MapImageButtonStyle">
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="10"/>
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Background" Value="Transparent"/>
+		</Style>
+
+		<Style Selector="Image.SkullImageStyle">
+			<Setter Property="Width" Value="40"/>
+			<Setter Property="Height" Value="40"/>
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+
+		<Style Selector="TextBlock.LabelStyle">
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="FontSize" Value="30"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="FontFamily" Value="Stencil"/>
+			<Setter Property="Margin" Value="5,0,5,10"/>
+		</Style>
+	</Window.Styles>
+
+	<Grid VerticalAlignment="Center" HorizontalAlignment="Stretch">
+		<DockPanel>
+			<TextBlock DockPanel.Dock="Top"
+                       HorizontalAlignment="Center"
+                       FontSize="50"
+                       FontFamily="Stencil"
+                       Margin="0,0,0,5"
+                       FontWeight="Bold">
+				Please Select a Map!
+			</TextBlock>
+
+			<Grid DockPanel.Dock="Top" Margin="10,10,10,10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<StackPanel Grid.Column="0" HorizontalAlignment="Center">
+					<Button Classes="MapImageButtonStyle" Command="{Binding SelectMapCommand}" CommandParameter="easy">
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/10x10.png"/>
+					</Button>
+					<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+					<TextBlock Text="10x10" Classes="LabelStyle"/>
+				</StackPanel>
+
+				<StackPanel Grid.Column="1" HorizontalAlignment="Center">
+					<Button Classes="MapImageButtonStyle" Command="{Binding SelectMapCommand}" CommandParameter="medium">
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/15x15.png"/>
+					</Button>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+					</StackPanel>
+					<TextBlock Text="15x15" Classes="LabelStyle"/>
+				</StackPanel>
+
+				<StackPanel Grid.Column="2" HorizontalAlignment="Center">
+					<Button Classes="MapImageButtonStyle" Command="{Binding SelectMapCommand}" CommandParameter="hard">
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/20x20.png"/>
+					</Button>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+					</StackPanel>
+					<TextBlock Text="20x20" Classes="LabelStyle"/>
+				</StackPanel>
+
+				<StackPanel Grid.Column="3" HorizontalAlignment="Center">
+					<Button Classes="MapImageButtonStyle" Command="{Binding SelectMapCommand}" CommandParameter="custom">
+						<Image Source="avares://BomberGame_Avalonia/Assets/Images/customMap.jpg"/>
+					</Button>
+					<Image Source="avares://BomberGame_Avalonia/Assets/Images/skull.png" Classes="SkullImageStyle"/>
+					<TextBlock Text="CUSTOM" Classes="LabelStyle"/>
+				</StackPanel>
+			</Grid>
+		</DockPanel>
+	</Grid>
+</Window>

@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="View\Resources\Images\10x10.png" />
+    <None Remove="View\Resources\Images\15x15.png" />
+    <None Remove="View\Resources\Images\20x20.png" />
+    <None Remove="View\Resources\Images\bomb.jpg" />
+    <None Remove="View\Resources\Images\bombIco.ico" />
+    <None Remove="View\Resources\Images\customMap.jpg" />
+    <None Remove="View\Resources\Images\empty.jpg" />
+    <None Remove="View\Resources\Images\enemy.jpg" />
+    <None Remove="View\Resources\Images\explosion.png" />
+    <None Remove="View\Resources\Images\player.jpg" />
+    <None Remove="View\Resources\Images\skull.png" />
+    <None Remove="View\Resources\Images\wall.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ELTE.FI.SARuleSet" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bomber\Bomber.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\Resources\Images\10x10.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Resources\Images\15x15.png" />
+    <Resource Include="View\Resources\Images\20x20.png" />
+    <Resource Include="View\Resources\Images\bomb.jpg" />
+    <Resource Include="View\Resources\Images\bombIco.ico" />
+    <Resource Include="View\Resources\Images\customMap.jpg" />
+    <Resource Include="View\Resources\Images\empty.jpg" />
+    <Resource Include="View\Resources\Images\enemy.jpg" />
+    <Resource Include="View\Resources\Images\explosion.png" />
+    <Resource Include="View\Resources\Images\player.jpg" />
+    <Resource Include="View\Resources\Images\skull.png" />
+    <Resource Include="View\Resources\Images\wall.jpg" />
+  </ItemGroup>
+
+</Project>
