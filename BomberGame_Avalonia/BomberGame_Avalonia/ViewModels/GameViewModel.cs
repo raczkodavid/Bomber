@@ -20,7 +20,6 @@ namespace BomberGame_Avalonia.ViewModels
 
         #region Command Properties
 
-        // Commands (no changes to the commands as requested)
         public RelayCommand NewGameCommand { get; private set; }
         public RelayCommand StartGameCommand { get; private set; }
         public RelayCommand PauseResumeCommand { get; private set; }
